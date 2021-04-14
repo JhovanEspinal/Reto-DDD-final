@@ -1,4 +1,4 @@
-package co.com.recomendador.domain.entities;
+package co.com.recomendador.domain.valueObjets;
 
 import co.com.sofka.domain.generic.Identity;
 
