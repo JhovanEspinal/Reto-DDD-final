@@ -5,6 +5,9 @@ import co.com.sofka.domain.generic.AggregateEvent;
 
 public class Recomendador extends AggregateEvent<RecomendadorId> {
 
+    protected Sede sede;
 
-
+    public Recomendador(RecomendadorId entityId) {
+        super(entityId);
+    }
 }
