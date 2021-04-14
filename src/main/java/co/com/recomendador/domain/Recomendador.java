@@ -1,5 +1,6 @@
 package co.com.recomendador.domain;
 
+import co.com.recomendador.domain.entities.Cilindraje;
 import co.com.recomendador.domain.entities.Cliente;
 import co.com.recomendador.domain.entities.Moto;
 import co.com.recomendador.domain.entities.Vendedor;
@@ -16,10 +17,22 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
     protected List<Moto> motos;
     protected Cliente cliente;
     protected Presupuesto presupuesto;
+    protected Cilindraje cilindraje;
+    protected Boolean generado;
 
 
 
     public Recomendador(RecomendadorId entityId) {
         super(entityId);
     }
+
+    public void agregarVendedor(){
+
+    }
+
+    public void generarCotizacion(){
+
+
+    }
+
 }
