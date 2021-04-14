@@ -1,5 +1,6 @@
 package co.com.recomendador.domain.entities;
 
+import co.com.recomendador.domain.valueObjets.MotoId;
 import co.com.recomendador.domain.valueObjets.Nombre;
 import co.com.sofka.domain.generic.Entity;
 
@@ -20,6 +21,7 @@ public class Moto extends Entity<MotoId>{
         this.cilindraje = cilindraje;
 
     }
+
 
     public void eliminarMoto(){
 
