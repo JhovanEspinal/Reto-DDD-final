@@ -4,6 +4,7 @@ import co.com.recomendador.domain.entities.Cilindraje;
 import co.com.recomendador.domain.entities.Cliente;
 import co.com.recomendador.domain.entities.Moto;
 import co.com.recomendador.domain.entities.Vendedor;
+import co.com.recomendador.domain.events.RecomendadorCreado;
 import co.com.recomendador.domain.valueObjets.RecomendadorId;
 import co.com.recomendador.domain.valueObjets.Sede;
 import co.com.sofka.domain.generic.AggregateEvent;
@@ -24,6 +25,7 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     public Recomendador(RecomendadorId entityId) {
         super(entityId);
+        appendChange(new RecomendadorCreado(entityId)).apply();
     }
 
     public void agregarVendedor(){
