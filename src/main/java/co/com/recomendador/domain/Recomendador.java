@@ -28,12 +28,15 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         appendChange(new RecomendadorCreado(entityId)).apply();
     }
 
-    public void agregarVendedor(){
-
-    }
-
     public void agregarMotos(Map<MotoId,Moto> motos){
         appendChange(new MotosAgregadas(motos)).apply();
+    }
+
+    public void agregarSede(RecomendadorId recoId, Sede sede){
+        appendChange(new SedeAgregada(recoId,sede)).apply();
+    }
+    public void agregarVendedor(){
+
     }
 
     public void generarCotizacion(){

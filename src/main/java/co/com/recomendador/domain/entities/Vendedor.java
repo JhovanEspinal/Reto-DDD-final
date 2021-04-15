@@ -3,6 +3,7 @@ package co.com.recomendador.domain.entities;
 
 import co.com.recomendador.domain.valueObjets.Cedula;
 import co.com.recomendador.domain.valueObjets.Nombre;
+import co.com.recomendador.domain.valueObjets.Sede;
 import co.com.recomendador.domain.valueObjets.VendedorId;
 import co.com.sofka.domain.generic.Entity;
 
@@ -25,8 +26,6 @@ public class Vendedor extends Entity<VendedorId> {
         return cedula;
     }
 
-    public void agregarCliente(){
 
-    }
 
 }
