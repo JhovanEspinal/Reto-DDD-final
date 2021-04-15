@@ -30,6 +30,7 @@ public class Vendedor extends Entity<VendedorId> {
         return cliente;
     }
 
+
     public void AgregarCliente(Cliente cliente){
 
         this.cliente = cliente;
