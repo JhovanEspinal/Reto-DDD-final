@@ -43,13 +43,12 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         return recomendador;
     }
 
-
-
     public void agregarSede(RecomendadorId recoId, Sede sede){
         appendChange(new SedeAgregada(recoId,sede)).apply();
     }
-    public void agregarVendedor(){
 
+    public void agregarVendedor(RecomendadorId recoId, Vendedor vendedor){
+    appendChange(new VendedorAgregado(recoId, vendedor)).apply();
     }
 
     public void generarCotizacion(){
