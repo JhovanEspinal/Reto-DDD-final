@@ -1,16 +1,16 @@
 package co.com.recomendador.domain.entities;
 
 
-import co.com.recomendador.domain.valueObjets.Cedula;
-import co.com.recomendador.domain.valueObjets.Nombre;
-import co.com.recomendador.domain.valueObjets.Sede;
-import co.com.recomendador.domain.valueObjets.VendedorId;
+
+import co.com.recomendador.domain.events.ClienteAgregado;
+import co.com.recomendador.domain.valueObjets.*;
 import co.com.sofka.domain.generic.Entity;
 
 public class Vendedor extends Entity<VendedorId> {
 
     private final Nombre nombre;
     private final Cedula cedula;
+    private ClienteId clienteid;
 
     public Vendedor(VendedorId entityId, Nombre nombre, Cedula cedula) {
         super(entityId);
@@ -26,6 +26,10 @@ public class Vendedor extends Entity<VendedorId> {
         return cedula;
     }
 
+    public void AgregarCliente(RecomendadorId recoId,ClienteId clienteid){
 
+        this.clienteid = clienteid;
+
+    }
 
 }

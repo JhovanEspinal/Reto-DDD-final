@@ -1,7 +1,6 @@
 package co.com.recomendador.domain.entities;
 
-import co.com.recomendador.domain.valueObjets.MotoId;
-import co.com.recomendador.domain.valueObjets.Nombre;
+import co.com.recomendador.domain.valueObjets.*;
 import co.com.sofka.domain.generic.Entity;
 
 public class Moto extends Entity<MotoId>{

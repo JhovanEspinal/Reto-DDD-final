@@ -1,6 +1,5 @@
-package co.com.recomendador.domain.entities;
+package co.com.recomendador.domain.valueObjets;
 
-import co.com.recomendador.domain.valueObjets.Nombre;
 import co.com.sofka.domain.generic.ValueObject;
 
 public class Precio implements ValueObject<Integer> {

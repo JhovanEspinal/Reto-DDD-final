@@ -1,8 +1,8 @@
 package co.com.recomendador.domain.command;
 
-import co.com.recomendador.domain.entities.Cilindraje;
-import co.com.recomendador.domain.entities.Precio;
-import co.com.recomendador.domain.entities.TipoMoto;
+import co.com.recomendador.domain.valueObjets.Cilindraje;
+import co.com.recomendador.domain.valueObjets.Precio;
+import co.com.recomendador.domain.valueObjets.TipoMoto;
 import co.com.recomendador.domain.valueObjets.MotoId;
 import co.com.recomendador.domain.valueObjets.Nombre;
 import co.com.recomendador.domain.valueObjets.RecomendadorId;
