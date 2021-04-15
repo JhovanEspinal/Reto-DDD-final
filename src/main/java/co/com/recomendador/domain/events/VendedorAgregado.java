@@ -15,4 +15,12 @@ public class VendedorAgregado extends DomainEvent {
         this.recomendadorId = recoId;
         this.vendedor = vendedor;
     }
+
+    public RecomendadorId getRecomendadorId() {
+        return recomendadorId;
+    }
+
+    public Vendedor getVendedor() {
+        return vendedor;
+    }
 }

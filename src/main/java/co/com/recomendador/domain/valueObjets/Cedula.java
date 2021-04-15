@@ -16,6 +16,10 @@ public class Cedula implements ValueObject<String> {
         }
     }
 
+    public static Cedula of(String cc){
+        return new Cedula(cc);}
+
+
     public String value() {
         return value;
     }
