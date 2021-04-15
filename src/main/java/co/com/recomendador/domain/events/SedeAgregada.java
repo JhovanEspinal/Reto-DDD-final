@@ -1,4 +1,4 @@
-package co.com.recomendador.domain;
+package co.com.recomendador.domain.events;
 
 import co.com.recomendador.domain.valueObjets.RecomendadorId;
 import co.com.recomendador.domain.valueObjets.Sede;
@@ -17,5 +17,9 @@ public class SedeAgregada extends DomainEvent {
 
     public Sede getSede() {
         return sede;
+    }
+
+    public RecomendadorId getRecoId() {
+        return recoId;
     }
 }

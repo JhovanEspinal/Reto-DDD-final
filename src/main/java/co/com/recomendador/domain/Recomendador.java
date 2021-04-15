@@ -1,8 +1,8 @@
 package co.com.recomendador.domain;
 
 import co.com.recomendador.domain.entities.*;
-import co.com.recomendador.domain.events.MotosAgregadas;
 import co.com.recomendador.domain.events.RecomendadorCreado;
+import co.com.recomendador.domain.events.SedeAgregada;
 import co.com.recomendador.domain.valueObjets.MotoId;
 import co.com.recomendador.domain.valueObjets.RecomendadorId;
 import co.com.recomendador.domain.valueObjets.Sede;

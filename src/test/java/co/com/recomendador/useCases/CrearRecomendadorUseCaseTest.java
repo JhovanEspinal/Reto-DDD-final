@@ -1,11 +1,9 @@
 package co.com.recomendador.useCases;
 
-import co.com.recomendador.domain.RecomendadorChange;
 import co.com.recomendador.domain.command.CrearRecomendador;
 import co.com.recomendador.domain.entities.Cilindraje;
 import co.com.recomendador.domain.entities.Precio;
 import co.com.recomendador.domain.entities.TipoMoto;
-import co.com.recomendador.domain.events.MotosAgregadas;
 import co.com.recomendador.domain.events.RecomendadorCreado;
 import co.com.recomendador.domain.valueObjets.MotoId;
 import co.com.recomendador.domain.valueObjets.Nombre;
@@ -15,12 +13,8 @@ import co.com.sofka.business.support.RequestCommand;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class CrearRecomendadorUseCaseTest {
 
@@ -36,12 +30,11 @@ class CrearRecomendadorUseCaseTest {
                 .getDomainEvents();
 
         var recomendadorCreado = (RecomendadorCreado) events.get(0);
-        var motosagregadas = (MotosAgregadas) events.get(1);
 
         Assertions.assertTrue(Objects.nonNull(recomendadorCreado.getRecomendadorId().value()));
         Assertions.assertEquals("R001",recomendadorCreado.getRecomendadorId().value());
-        Assertions.assertEquals(10,motosagregadas.getMotos().size());
-//        Assertions.assertEquals("XTZ",motosagregadas.getMotos().get("001").getNombre().value());
+        Assertions.assertEquals(10,recomendadorCreado.getMotos().size());
+//        Assertions.assertEquals("XTZ",recomendadorCreado.getMotos().get("001").getNombre().value());
     }
 
 
