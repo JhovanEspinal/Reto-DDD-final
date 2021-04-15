@@ -32,16 +32,31 @@ public class Cliente extends Entity<ClienteId> {
         return telefono;
     }
 
-    public void IndicarTipoMoto(){
+    public TipoMoto TipoM() {
+        return tipoM;
+    }
+
+    public Presupuesto Presupuesto() {
+        return presupuesto;
+    }
+
+    public Cilindraje Cilindraje() {
+        return cilindraje;
+    }
+
+
+    public void IndicarTipoMoto(TipoMoto tipoM){
+        this.tipoM = tipoM;
+    }
+
+    public void indicarPresupuesto(Presupuesto presupuesto){
+        this.presupuesto = presupuesto;
 
     }
 
-    public void indicarPresupuesto(){
-
+    public void elegirCilindraje(Cilindraje cilindraje){
+    this.cilindraje = cilindraje;
     }
 
-    public void elegirCilindraje(){
-
-    }
 
 }

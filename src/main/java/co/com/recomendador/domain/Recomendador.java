@@ -63,18 +63,6 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         return vendedor;
     }
 
-    public TipoMoto TipoM() {
-        return tipoM;
-    }
-
-    public Presupuesto Presupuesto() {
-        return presupuesto;
-    }
-
-    public Cilindraje Cilindraje() {
-        return cilindraje;
-    }
-
     public Map<MotoId, Moto> Motos() {
         return motos;
     }
