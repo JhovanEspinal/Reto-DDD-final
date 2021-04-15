@@ -1,4 +1,4 @@
-package co.com.recomendador.domain;
+package co.com.recomendador.domain.valueObjets;
 
 import co.com.sofka.domain.generic.ValueObject;
 
