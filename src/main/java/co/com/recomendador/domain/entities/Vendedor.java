@@ -10,7 +10,7 @@ public class Vendedor extends Entity<VendedorId> {
 
     private final Nombre nombre;
     private final Cedula cedula;
-    private ClienteId clienteid;
+    private Cliente cliente;
 
     public Vendedor(VendedorId entityId, Nombre nombre, Cedula cedula) {
         super(entityId);
@@ -26,9 +26,13 @@ public class Vendedor extends Entity<VendedorId> {
         return cedula;
     }
 
-    public void AgregarCliente(RecomendadorId recoId,ClienteId clienteid){
+    public Cliente getCliente() {
+        return cliente;
+    }
 
-        this.clienteid = clienteid;
+    public void AgregarCliente(Cliente cliente){
+
+        this.cliente = cliente;
 
     }
 

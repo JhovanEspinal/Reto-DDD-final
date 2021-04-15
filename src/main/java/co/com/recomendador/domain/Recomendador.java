@@ -1,6 +1,7 @@
 package co.com.recomendador.domain;
 
 import co.com.recomendador.domain.entities.*;
+import co.com.recomendador.domain.events.ClienteAgregado;
 import co.com.recomendador.domain.events.RecomendadorCreado;
 import co.com.recomendador.domain.events.SedeAgregada;
 import co.com.recomendador.domain.events.VendedorAgregado;
@@ -15,7 +16,6 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     protected Sede sede;
     protected Vendedor vendedor;
-    protected Cliente cliente;
     protected TipoMoto tipoM;
     protected Presupuesto presupuesto;
     protected Cilindraje cilindraje;
@@ -52,7 +52,10 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     public void generarCotizacion(){
 
+    }
 
+    public void agregarCliente(RecomendadorId recoId,Cliente cliente){
+        appendChange(new ClienteAgregado(recoId,cliente)).apply();
     }
 
     public Sede Sede() {
@@ -61,10 +64,6 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     public Vendedor Vendedor() {
         return vendedor;
-    }
-
-    public Cliente Cliente() {
-        return cliente;
     }
 
     public TipoMoto TipoM() {
