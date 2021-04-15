@@ -55,6 +55,18 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         appendChange(new ClienteAgregado(recoId,cliente)).apply();
     }
 
+    public void agregarTipoMoto(RecomendadorId recoId,TipoMoto tipoM){
+        appendChange(new TipoMotoAgregado(recoId,tipoM)).apply();
+    }
+
+    public void agregarPrepuesto(RecomendadorId recoId,Presupuesto presupuesto){
+        appendChange(new PresupuestoAgregado(recoId,presupuesto)).apply();
+    }
+
+    public void agregarCilindraje(RecomendadorId recoId,Cilindraje cilindraje){
+        appendChange(new CilindrajeAgregado(recoId,cilindraje)).apply();
+    }
+
     public Sede Sede() {
         return sede;
     }
