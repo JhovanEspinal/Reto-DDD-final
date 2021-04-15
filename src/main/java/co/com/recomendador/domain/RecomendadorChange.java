@@ -14,6 +14,7 @@ public class RecomendadorChange extends EventChange {
 
         apply((RecomendadorCreado event) -> {
             recomendador.motos = event.getMotos();
+            recomendador.generado = Boolean.FALSE;
         });
 
         apply((SedeAgregada event) -> {
