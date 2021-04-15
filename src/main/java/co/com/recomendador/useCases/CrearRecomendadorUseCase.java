@@ -32,8 +32,8 @@ public class CrearRecomendadorUseCase extends UseCase<RequestCommand<CrearRecome
 
 
 
-        var recomendador = new Recomendador(recomendadorId);
-        recomendador.agregarMotos(motos);
+        var recomendador = new Recomendador(recomendadorId,motos);
+
 
         emit().onResponse(new ResponseEvents(recomendador.getUncommittedChanges()));
     }

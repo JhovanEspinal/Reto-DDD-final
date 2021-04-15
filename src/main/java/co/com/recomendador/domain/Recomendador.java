@@ -57,4 +57,35 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     }
 
+    public Sede Sede() {
+        return sede;
+    }
+
+    public Vendedor Vendedor() {
+        return vendedor;
+    }
+
+    public Cliente Cliente() {
+        return cliente;
+    }
+
+    public TipoMoto TipoM() {
+        return tipoM;
+    }
+
+    public Presupuesto Presupuesto() {
+        return presupuesto;
+    }
+
+    public Cilindraje Cilindraje() {
+        return cilindraje;
+    }
+
+    public Map<MotoId, Moto> Motos() {
+        return motos;
+    }
+
+    public Boolean Generado() {
+        return generado;
+    }
 }
