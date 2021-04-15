@@ -26,4 +26,20 @@ public class Moto extends Entity<MotoId>{
     public void eliminarMoto(){
 
     }
+
+    public Nombre getNombre() {
+        return nombre;
+    }
+
+    public Precio getPrecio() {
+        return precio;
+    }
+
+    public TipoMoto getTipoM() {
+        return tipoM;
+    }
+
+    public Cilindraje getCilindraje() {
+        return cilindraje;
+    }
 }

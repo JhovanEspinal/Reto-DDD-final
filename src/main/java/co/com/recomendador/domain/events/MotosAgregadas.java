@@ -13,11 +13,13 @@ public class MotosAgregadas extends DomainEvent {
     private final Map<MotoId,Moto> motos ;
 
     public MotosAgregadas(Map<MotoId, Moto> motos) {
-        super("recomendador.MotosAhregadas");
+        super("recomendador.MotosAgregadas");
         this.motos = motos;
     }
 
     public Map<MotoId, Moto> getMotos() {
         return motos;
     }
+
+
 }

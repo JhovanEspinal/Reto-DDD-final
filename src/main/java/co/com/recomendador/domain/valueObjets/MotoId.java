@@ -12,6 +12,6 @@ public class MotoId extends Identity {
     }
 
     public static MotoId of(String uid){
-        return new MotoId((uid));
+        return new MotoId(uid);
     }
 }
