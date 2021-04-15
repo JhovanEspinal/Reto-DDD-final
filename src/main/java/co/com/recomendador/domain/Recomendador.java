@@ -16,9 +16,6 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     protected Sede sede;
     protected Vendedor vendedor;
-    protected TipoMoto tipoM;
-    protected Presupuesto presupuesto;
-    protected Cilindraje cilindraje;
     protected Map<MotoId,Moto> motos;
     protected Boolean generado;
 

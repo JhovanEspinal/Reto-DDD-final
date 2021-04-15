@@ -1,9 +1,6 @@
 package co.com.recomendador.domain.entities;
 
-import co.com.recomendador.domain.valueObjets.Cedula;
-import co.com.recomendador.domain.valueObjets.ClienteId;
-import co.com.recomendador.domain.valueObjets.Nombre;
-import co.com.recomendador.domain.valueObjets.Telefono;
+import co.com.recomendador.domain.valueObjets.*;
 import co.com.sofka.domain.generic.Entity;
 
 public class Cliente extends Entity<ClienteId> {
@@ -11,6 +8,9 @@ public class Cliente extends Entity<ClienteId> {
     private final Nombre nombre;
     private final Cedula cedula;
     private final Telefono telefono;
+    protected TipoMoto tipoM;
+    protected Presupuesto presupuesto;
+    protected Cilindraje cilindraje;
 
 
     public Cliente(ClienteId entityId,Nombre nombre, Cedula cedula, Telefono telefono) {
@@ -32,7 +32,7 @@ public class Cliente extends Entity<ClienteId> {
         return telefono;
     }
 
-    public void elegirTipoMoto(){
+    public void IndicarTipoMoto(){
 
     }
 
