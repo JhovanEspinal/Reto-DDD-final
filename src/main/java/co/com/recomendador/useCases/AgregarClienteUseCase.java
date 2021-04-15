@@ -1,9 +1,7 @@
 package co.com.recomendador.useCases;
 
 import co.com.recomendador.domain.Recomendador;
-import co.com.recomendador.domain.command.AgregarVendedor;
-import co.com.recomendador.domain.command.Agregarcliente;
-import co.com.recomendador.domain.entities.Vendedor;
+import co.com.recomendador.domain.command.AgregarCliente;
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.RequestCommand;
@@ -11,10 +9,10 @@ import co.com.sofka.business.support.ResponseEvents;
 
 import java.util.Objects;
 
-public class AgregarClienteUseCase extends UseCase<RequestCommand<Agregarcliente>, ResponseEvents> {
+public class AgregarClienteUseCase extends UseCase<RequestCommand<AgregarCliente>, ResponseEvents> {
 
     @Override
-    public void executeUseCase(RequestCommand<Agregarcliente> agregarclienteRequestCommand) {
+    public void executeUseCase(RequestCommand<AgregarCliente> agregarclienteRequestCommand) {
 
         var command = agregarclienteRequestCommand.getCommand();
         var recomendadorId = command.getRecomendadorId();

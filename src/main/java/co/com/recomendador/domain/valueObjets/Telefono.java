@@ -15,6 +15,9 @@ public class Telefono implements ValueObject<String> {
         }
     }
 
+    public static Telefono of(String telefono){
+        return new Telefono(telefono);}
+
     public String value(){
         return value;
     }
