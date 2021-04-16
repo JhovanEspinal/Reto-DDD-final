@@ -59,7 +59,7 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         appendChange(new TipoMotoAgregado(recoId,tipoM)).apply();
     }
 
-    public void agregarPrepuesto(RecomendadorId recoId,Presupuesto presupuesto){
+    public void agregarPresupuesto(RecomendadorId recoId, Presupuesto presupuesto){
         appendChange(new PresupuestoAgregado(recoId,presupuesto)).apply();
     }
 

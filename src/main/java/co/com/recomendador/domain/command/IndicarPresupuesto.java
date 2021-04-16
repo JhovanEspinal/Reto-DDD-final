@@ -1,5 +1,6 @@
 package co.com.recomendador.domain.command;
 
+import co.com.recomendador.domain.valueObjets.Presupuesto;
 import co.com.recomendador.domain.valueObjets.RecomendadorId;
 import co.com.recomendador.domain.valueObjets.TipoMoto;
 import co.com.sofka.domain.generic.Command;
@@ -7,18 +8,18 @@ import co.com.sofka.domain.generic.Command;
 public class IndicarPresupuesto implements Command {
 
     private final RecomendadorId recomendadorId;
-    private final TipoMoto tipoMoto;
+    private final Presupuesto presupuesto;
 
-    public IndicarPresupuesto(RecomendadorId recomendadorId, TipoMoto tipoMoto) {
+    public IndicarPresupuesto(RecomendadorId recomendadorId, Presupuesto presupuesto) {
         this.recomendadorId = recomendadorId;
-        this.tipoMoto = tipoMoto;
+        this.presupuesto = presupuesto;
     }
 
     public RecomendadorId getRecomendadorId() {
         return recomendadorId;
     }
 
-    public TipoMoto getTipoMoto() {
-        return tipoMoto;
+    public Presupuesto getPresupuesto() {
+        return presupuesto;
     }
 }
