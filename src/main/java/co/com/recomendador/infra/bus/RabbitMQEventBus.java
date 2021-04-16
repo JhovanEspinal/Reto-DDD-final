@@ -20,8 +20,8 @@ import java.util.logging.Logger;
 
 @Service
 public class RabbitMQEventBus implements EventBus {
-    private static final String EXCHANGE = "core-nomemientas";
-    private static final String TOPIC_BUSINESS_ERROR = "org.example.nomemientan.business.error";
+    private static final String EXCHANGE = "core-recomendado";
+    private static final String TOPIC_BUSINESS_ERROR = "co.com.recomendador.business.error";
     private static final Logger logger = Logger.getLogger(RabbitMQEventBus.class.getName());
 
     private final RabbitTemplate rabbitTemplate;

@@ -29,7 +29,7 @@ public class RabbitMQConsumer implements Flow.Subscription {
     @RabbitListener(bindings = @QueueBinding(
             value = @Queue(value = "recomendador.handles", durable = "true"),
             exchange = @Exchange(value = "recomendador", type = "topic"),
-            key = "recomendador."
+            key = "recomendador.#"
     ))
     public void recievedMessageSlack(Message<String> message) {
         localReplay(message);
