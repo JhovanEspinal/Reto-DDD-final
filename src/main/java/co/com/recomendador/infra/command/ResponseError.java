@@ -1,4 +1,4 @@
-package org.example.nomemientan.infra.command;
+package co.com.recomendador.infra.command;
 
 public class ResponseError {
     private final int status;

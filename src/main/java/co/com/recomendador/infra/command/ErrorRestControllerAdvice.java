@@ -1,4 +1,4 @@
-package org.example.nomemientan.infra.command;
+package co.com.recomendador.infra.command;
 
 
 import org.springframework.http.HttpStatus;

@@ -1,4 +1,4 @@
-package org.example.nomemientan.infra.config;
+package co.com.recomendador.infra.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

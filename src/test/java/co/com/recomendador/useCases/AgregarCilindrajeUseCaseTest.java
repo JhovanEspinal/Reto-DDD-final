@@ -75,7 +75,7 @@ class AgregarCilindrajeUseCaseTest {
 
         return List.of(
                 new RecomendadorCreado(recoId, motos),
-                new VendedorAgregado(RecomendadorId.of("R012"), new Vendedor(VendedorId.of("012"), Nombre.of("Jhovan"), Cedula.of("123456789"))),
+                new VendedorAgregado(RecomendadorId.of("R012"),VendedorId.of("012"), Nombre.of("Jhovan"), Cedula.of("123456789")),
                 new ClienteAgregado(RecomendadorId.of("R012"), new Cliente(ClienteId.of("032"), Nombre.of("David"), Cedula.of("4532578"), Telefono.of("25614"))),
                 new TipoMotoAgregado(RecomendadorId.of("012"),new TipoMoto("C")),
                 new PresupuestoAgregado(RecomendadorId.of("012"),new Presupuesto(6000000)));
@@ -118,7 +118,7 @@ class AgregarCilindrajeUseCaseTest {
 
         return List.of(
                 new RecomendadorCreado(recoId, motos),
-                new VendedorAgregado(RecomendadorId.of("012"), new Vendedor(VendedorId.of("012"),Nombre.of("Jhovan"),Cedula.of("123456789"))),
+                new VendedorAgregado(RecomendadorId.of("012"),VendedorId.of("012"),Nombre.of("Jhovan"),Cedula.of("123456789")),
                 new ClienteAgregado(RecomendadorId.of("012"),new Cliente(ClienteId.of("C003"),Nombre.of("Daniel"),Cedula.of("1235489"),Telefono.of("276427"))),
                 new TipoMotoAgregado(RecomendadorId.of("012"),new TipoMoto("C")),
                 new PresupuestoAgregado(RecomendadorId.of("012"),new Presupuesto(6000000)),

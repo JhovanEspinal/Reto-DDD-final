@@ -1,4 +1,4 @@
-package org.example.nomemientan.infra.command;
+package co.com.recomendador.infra.command;
 
 import co.com.sofka.application.ApplicationCommandExecutor;
 import org.springframework.beans.factory.annotation.Autowired;

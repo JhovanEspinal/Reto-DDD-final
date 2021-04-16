@@ -44,9 +44,9 @@ class AgregarVendedorUseCaseTest {
             motos.put(MotoId.of("008"), new Moto(MotoId.of("009"), Nombre.of("FZ"), Precio.of(8000000), TipoMoto.of("c"), Cilindraje.of(150)));
             motos.put(MotoId.of("010"), new Moto(MotoId.of("010"), Nombre.of("BOXER"), Precio.of(3900000), TipoMoto.of("c"), Cilindraje.of(100)));
 
-            var vendedor = new Vendedor(VendedorId.of("043"),Nombre.of("Raul"),Cedula.of("1235648795"));
 
-            var command = new AgregarVendedor(recomendadorId,vendedor);
+
+            var command = new AgregarVendedor(recomendadorId,VendedorId.of("043"),Nombre.of("Raul"),Cedula.of("1235648795"));
             var useCase = new AgregarVendedorUseCase();
 
 
@@ -63,8 +63,8 @@ class AgregarVendedorUseCaseTest {
             var vendedorAgregado = (VendedorAgregado) events.get(0);
 
             Assertions.assertEquals("R001", vendedorAgregado.getRecomendadorId().value());
-            Assertions.assertEquals("Raul",vendedorAgregado.getVendedor().getNombre().value());
-            Assertions.assertEquals("1235648795",vendedorAgregado.getVendedor().getCedula().value());
+            Assertions.assertEquals("Raul",vendedorAgregado.getNombre().value());
+            Assertions.assertEquals("1235648795",vendedorAgregado.getCedula().value());
 
         }
 
@@ -93,7 +93,7 @@ class AgregarVendedorUseCaseTest {
 
         var vendedor = new Vendedor(VendedorId.of("043"),Nombre.of("Raul"),Cedula.of("1235648795"));
 
-        var command = new AgregarVendedor(recomendadorId,vendedor);
+        var command = new AgregarVendedor(recomendadorId,VendedorId.of("043"),Nombre.of("Raul"),Cedula.of("1235648795"));
         var useCase = new AgregarVendedorUseCase();
 
 
@@ -114,7 +114,7 @@ class AgregarVendedorUseCaseTest {
 
         return List.of(
                 new RecomendadorCreado(recoId, motos),
-                new VendedorAgregado(RecomendadorId.of("012"), new Vendedor(VendedorId.of("012"),Nombre.of("Jhovan"),Cedula.of("123456789"))));
+                new VendedorAgregado(RecomendadorId.of("012"),VendedorId.of("012"),Nombre.of("Jhovan"),Cedula.of("123456789")));
 
 
     }

@@ -6,6 +6,8 @@ import co.com.recomendador.domain.valueObjets.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +15,7 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     protected Sede sede;
     protected Vendedor vendedor;
+    protected Map<MotoId,Moto> motos;
     protected Moto motoRecomendada;
     protected Boolean generado;
 
@@ -40,8 +43,8 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         appendChange(new SedeAgregada(recoId,sede)).apply();
     }
 
-    public void agregarVendedor(RecomendadorId recoId, Vendedor vendedor){
-    appendChange(new VendedorAgregado(recoId, vendedor)).apply();
+    public void agregarVendedor(RecomendadorId recoId,VendedorId vendedorId,Nombre nombre,Cedula cedula){
+    appendChange(new VendedorAgregado(recoId,vendedorId,nombre,cedula)).apply();
     }
 
 
@@ -66,11 +69,65 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         appendChange(new MotoDefinida(recoId,moto)).apply();
     }
 
-    public void generarRecomendacion(RecomendadorId recoId){
-        appendChange(new RecomendacionGenerada(recoId)).apply();
+    public void generarRecomendador(RecomendadorId recoId){
+        appendChange(new RecomendadorGenerado(recoId)).apply();
     }
     public Sede Sede() {
         return sede;
+    }
+
+
+    public void filtrarXTipo(TipoMoto tipoMoto){
+        var MotosN = new HashMap<MotoId,Moto>();
+        this.motos.forEach(((motoId, moto) ->{
+            if(moto.getTipoM().value().equals(tipoMoto.value())){
+                MotosN.put(motoId,moto);
+            }
+        }));
+
+        this.motos = MotosN;
+    }
+
+    public void filtrarXPresupuesto(Presupuesto presupuesto){
+        var MotosN = new HashMap<MotoId,Moto>();
+        this.motos.forEach(((motoId, moto) ->{
+            if(moto.getPrecio().value() <= presupuesto.value()){
+                MotosN.put(motoId,moto);
+            }
+        }));
+
+        this.motos = MotosN;
+    }
+
+    public void filtrarXCilindraje(Cilindraje cilindraje){
+        var MotosN = new HashMap<MotoId,Moto>();
+        this.motos.forEach(((motoId, moto) ->{
+            if(moto.getCilindraje().value() == cilindraje.value()){
+                MotosN.put(motoId,moto);
+            }
+        }));
+
+        this.motos = MotosN;
+    }
+
+    public Moto definirMotoFinal(){
+        var motosN = new ArrayList<Moto>();
+        this.motos.forEach((motoid,moto)->{
+            motosN.add(moto);
+        });
+
+        Moto motoD = null;
+        Integer mayor = 0;
+
+        for (int i= 0; i < motosN.size(); i++){
+            if(motosN.get(i).getPrecio().value() > mayor ){
+                mayor = motosN.get(i).getPrecio().value();
+                motoD = motosN.get(i);
+            }
+
+        }
+        return motoD;
+
     }
 
     public Vendedor Vendedor() {

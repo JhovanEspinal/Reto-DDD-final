@@ -21,7 +21,7 @@ public class AgregarVendedorUseCase extends UseCase<RequestCommand<AgregarVended
             throw new BusinessException(recomendador.identity().value(),"Ya tiene asignado un vendedor");
         }
 
-        recomendador.agregarVendedor(command.getRecomendadorId(), command.getVendedor());
+        recomendador.agregarVendedor(command.getRecomendadorId(),command.getVendedorId(),command.getNombre(),command.getCedula());
         emit().onResponse(new ResponseEvents(recomendador.getUncommittedChanges()));
     }
 }

@@ -1,4 +1,4 @@
-package org.example.nomemientan.infra.bus;
+package co.com.recomendador.infra.bus;
 
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.sofka.infraestructure.DeserializeEventException;
@@ -27,9 +27,9 @@ public class RabbitMQConsumer implements Flow.Subscription {
     }
 
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "juego.handles", durable = "true"),
-            exchange = @Exchange(value = "core-nomemientas", type = "topic"),
-            key = "nomemientan.juego.#"
+            value = @Queue(value = "recomendador.handles", durable = "true"),
+            exchange = @Exchange(value = "recomendador", type = "topic"),
+            key = "recomendador."
     ))
     public void recievedMessageSlack(Message<String> message) {
         localReplay(message);

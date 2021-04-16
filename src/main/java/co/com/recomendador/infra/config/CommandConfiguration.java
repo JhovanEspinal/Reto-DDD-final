@@ -1,5 +1,6 @@
-package org.example.nomemientan.infra.config;
+package co.com.recomendador.infra.config;
 
+import co.com.recomendador.infra.repo.MongoEventStoreRepository;
 import co.com.sofka.application.ApplicationCommandExecutor;
 import co.com.sofka.application.ApplicationEventDrive;
 import co.com.sofka.infraestructure.asyn.SubscriberEvent;
@@ -7,7 +8,6 @@ import co.com.sofka.infraestructure.bus.EventBus;
 import co.com.sofka.infraestructure.repository.EventStoreRepository;
 import com.mongodb.ConnectionString;
 import com.mongodb.MongoClientSettings;
-import org.example.nomemientan.infra.repo.MongoEventStoreRepository;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
@@ -25,7 +25,7 @@ import java.net.URI;
 @Configuration
 public class CommandConfiguration {
 
-    private static final String PACKAGE_USE_CASE = "org.example.nomemientan.usecase";
+    private static final String PACKAGE_USE_CASE = "co.com.recomendador.useCases";
 
 
     @Bean

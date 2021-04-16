@@ -1,4 +1,4 @@
-package org.example.nomemientan.infra.bus;
+package co.com.recomendador.infra.bus;
 
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.domain.generic.DomainEvent;

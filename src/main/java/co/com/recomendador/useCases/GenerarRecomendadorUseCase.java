@@ -6,7 +6,7 @@ import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.ResponseEvents;
 import co.com.sofka.business.support.TriggeredEvent;
 
-public class GenerarRecomendacionUseCase extends UseCase<TriggeredEvent<MotoDefinida>, ResponseEvents> {
+public class GenerarRecomendadorUseCase extends UseCase<TriggeredEvent<MotoDefinida>, ResponseEvents> {
     @Override
     public void executeUseCase(TriggeredEvent<MotoDefinida> motoDefinidaTriggeredEvent) {
 
@@ -14,7 +14,7 @@ public class GenerarRecomendacionUseCase extends UseCase<TriggeredEvent<MotoDefi
         var recomendarId = event.getRecomendadorId();
         var recomendador = Recomendador.from(recomendarId,retrieveEvents());
 
-        recomendador.generarRecomendacion(recomendarId);
+        recomendador.generarRecomendador(recomendarId);
         emit().onResponse(new ResponseEvents(recomendador.getUncommittedChanges()));
     }
     }

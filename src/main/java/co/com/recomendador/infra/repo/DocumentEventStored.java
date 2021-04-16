@@ -1,4 +1,4 @@
-package org.example.nomemientan.infra.repo;
+package co.com.recomendador.infra.repo;
 
 import co.com.sofka.infraestructure.store.StoredEvent;
 

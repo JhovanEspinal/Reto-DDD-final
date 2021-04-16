@@ -11,9 +11,8 @@ public class DefinirMotoUseCase extends UseCase<TriggeredEvent<CilindrajeAgregad
     public void executeUseCase(TriggeredEvent<CilindrajeAgregado> cilindrajeAgregadoTriggeredEvent) {
         var event = cilindrajeAgregadoTriggeredEvent.getDomainEvent();
         var recomendadorId = event.getRecomendadorId();
-
         var recomendador = Recomendador.from(recomendadorId,retrieveEvents());
-        var moto = recomendador.motoRecomendada().definirMotoFinal();
+        var moto = recomendador.definirMotoFinal();
 
         recomendador.definirMoto(recomendadorId,moto);
         emit().onResponse(new ResponseEvents(recomendador.getUncommittedChanges()));

@@ -1,4 +1,4 @@
-package org.example.nomemientan.infra.bus;
+package co.com.recomendador.infra.bus;
 
 import co.com.sofka.application.ApplicationEventDrive;
 import co.com.sofka.business.generic.UseCase;
