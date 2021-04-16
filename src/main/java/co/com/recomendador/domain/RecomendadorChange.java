@@ -1,12 +1,7 @@
 package co.com.recomendador.domain;
 
-import co.com.recomendador.domain.events.ClienteAgregado;
-import co.com.recomendador.domain.events.RecomendadorCreado;
-import co.com.recomendador.domain.events.SedeAgregada;
-import co.com.recomendador.domain.events.VendedorAgregado;
+import co.com.recomendador.domain.events.*;
 import co.com.sofka.domain.generic.EventChange;
-
-import java.util.HashMap;
 
 public class RecomendadorChange extends EventChange {
 

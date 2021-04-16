@@ -1,7 +1,6 @@
 package co.com.recomendador.useCases;
 
-import co.com.recomendador.domain.TipoMotoAgregado;
-import co.com.recomendador.domain.command.AgregarCliente;
+import co.com.recomendador.domain.events.TipoMotoAgregado;
 import co.com.recomendador.domain.command.IndicarTipoMoto;
 import co.com.recomendador.domain.entities.Cliente;
 import co.com.recomendador.domain.entities.Moto;
@@ -25,7 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)

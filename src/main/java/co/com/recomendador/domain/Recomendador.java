@@ -1,10 +1,7 @@
 package co.com.recomendador.domain;
 
 import co.com.recomendador.domain.entities.*;
-import co.com.recomendador.domain.events.ClienteAgregado;
-import co.com.recomendador.domain.events.RecomendadorCreado;
-import co.com.recomendador.domain.events.SedeAgregada;
-import co.com.recomendador.domain.events.VendedorAgregado;
+import co.com.recomendador.domain.events.*;
 import co.com.recomendador.domain.valueObjets.*;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
@@ -65,6 +62,10 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     public void agregarCilindraje(RecomendadorId recoId,Cilindraje cilindraje){
         appendChange(new CilindrajeAgregado(recoId,cilindraje)).apply();
+    }
+
+    public void definirMoto(RecomendadorId recoId, Moto moto){
+        appendChange(new MotoDefinida(recoId,moto)).apply();
     }
 
     public Sede Sede() {

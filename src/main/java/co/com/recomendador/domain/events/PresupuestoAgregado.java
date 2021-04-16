@@ -1,4 +1,4 @@
-package co.com.recomendador.domain;
+package co.com.recomendador.domain.events;
 
 import co.com.recomendador.domain.valueObjets.Presupuesto;
 import co.com.recomendador.domain.valueObjets.RecomendadorId;
