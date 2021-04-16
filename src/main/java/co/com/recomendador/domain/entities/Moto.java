@@ -3,8 +3,8 @@ package co.com.recomendador.domain.entities;
 import co.com.recomendador.domain.valueObjets.*;
 import co.com.sofka.domain.generic.Entity;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Moto extends Entity<MotoId>{
 
@@ -60,6 +60,29 @@ public class Moto extends Entity<MotoId>{
         }));
 
         this.motos = Motos;
+    }
+
+    public Moto definirMotoFinal(){
+        var motos = new ArrayList<Moto>();
+        this.motos.forEach((motoid,moto)->{
+            motos.add(moto);
+        });
+
+        Moto motoD = null;
+        Integer mayor = 0;
+
+        for (int i= 0; i <= motos.size(); i++){
+            if(motos.get(i).precio.value() > mayor ){
+                mayor = motos.get(i).precio.value();
+                motoD = motos.get(i);
+            }
+
+        }
+
+
+    return motoD;
+
+
     }
 
 
