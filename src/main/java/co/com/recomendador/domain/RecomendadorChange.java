@@ -40,6 +40,10 @@ public class RecomendadorChange extends EventChange {
             recomendador.motoRecomendada.filtrarXCilindraje(event.getCilindraje());
         });
 
+        apply((MotoDefinida event) -> {
+            recomendador.motoRecomendada = event.getMoto();
+        });
+
 
 
 

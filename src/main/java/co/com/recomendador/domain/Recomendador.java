@@ -44,9 +44,7 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
     appendChange(new VendedorAgregado(recoId, vendedor)).apply();
     }
 
-    public void generarCotizacion(){
 
-    }
 
     public void agregarCliente(RecomendadorId recoId,Cliente cliente){
         appendChange(new ClienteAgregado(recoId,cliente)).apply();
@@ -68,6 +66,9 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         appendChange(new MotoDefinida(recoId,moto)).apply();
     }
 
+    public void generarRecomendacion(RecomendadorId recoId){
+        appendChange(new RecomendacionGenerada(recoId)).apply();
+    }
     public Sede Sede() {
         return sede;
     }

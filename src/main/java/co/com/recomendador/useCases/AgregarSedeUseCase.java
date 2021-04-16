@@ -21,8 +21,8 @@ public class AgregarSedeUseCase extends UseCase<RequestCommand<AgregarSede>, Res
         var command = agregarSedeRequestCommand.getCommand();
         var recomendadorId = command.getRecomendadorId();
         var recomendador = Recomendador.from(recomendadorId,retrieveEvents());
-        if (Objects.nonNull(recomendador.Sede())){
-            throw new BusinessException(recomendador.identity().value(),"Ya se encuentrada registrada una sede");
+        if (Objects.nonNull(recomendador.Sede()) || recomendador.Generado() == Boolean.TRUE){
+            throw new BusinessException(recomendador.identity().value(),"No puede ingresar la sede");
         }
 
         recomendador.agregarSede(command.getRecomendadorId(), command.getSede());

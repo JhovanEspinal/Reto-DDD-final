@@ -17,7 +17,7 @@ public class AgregarVendedorUseCase extends UseCase<RequestCommand<AgregarVended
         var command = agregarVendedorRequestCommand.getCommand();
         var recomendadorId = command.getRecomendadorId();
         var recomendador = Recomendador.from(recomendadorId,retrieveEvents());
-        if (Objects.nonNull(recomendador.Vendedor())){
+        if (Objects.nonNull(recomendador.Vendedor()) || recomendador.Generado() == Boolean.TRUE){
             throw new BusinessException(recomendador.identity().value(),"Ya tiene asignado un vendedor");
         }
 
