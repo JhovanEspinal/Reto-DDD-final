@@ -29,6 +29,9 @@ public class RecomendadorChange extends EventChange {
             recomendador.vendedor.AgregarCliente(event.getCliente());
         });
 
+        apply((TipoMotoAgregado event) -> {
+            recomendador.vendedor.getCliente().IndicarTipoMoto(event.getTipoMoto());
+        });
 
 
 
