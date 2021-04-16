@@ -1,10 +1,12 @@
 package co.com.recomendador.domain;
 
+import co.com.recomendador.domain.entities.Moto;
 import co.com.recomendador.domain.entities.Vendedor;
 import co.com.recomendador.domain.events.*;
 import co.com.sofka.domain.generic.EventChange;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class RecomendadorChange extends EventChange {
 
@@ -31,22 +33,22 @@ public class RecomendadorChange extends EventChange {
 
         apply((TipoMotoAgregado event) -> {
             recomendador.vendedor.getCliente().IndicarTipoMoto(event.getTipoMoto());
-            recomendador.filtrarXTipo(event.getTipoMoto());
+
 
         });
 
         apply((PresupuestoAgregado event) -> {
             recomendador.vendedor.getCliente().indicarPresupuesto(event.getPresupuesto());
-            recomendador.filtrarXPresupuesto(event.getPresupuesto());
+
         });
 
         apply((CilindrajeAgregado event) -> {
             recomendador.vendedor.getCliente().IndicarCilindraje(event.getCilindraje());
-            recomendador.filtrarXCilindraje(event.getCilindraje());
+
         });
 
-        apply((MotoDefinida event) -> {
-            recomendador.motoRecomendada = event.getMoto();
+        apply((MotosDefinidas event) -> {
+            recomendador.motosRecomendadas = event.getMotosF();
         });
 
         apply((RecomendadorGenerado event) -> {

@@ -16,7 +16,7 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
     protected Sede sede;
     protected Vendedor vendedor;
     protected Map<MotoId,Moto> motos;
-    protected Moto motoRecomendada;
+    protected List<Moto> motosRecomendadas;
     protected Boolean generado;
 
     public Recomendador(RecomendadorId entityId,Map<MotoId,Moto> motos) {
@@ -65,8 +65,8 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         appendChange(new CilindrajeAgregado(recoId,cilindraje)).apply();
     }
 
-    public void definirMoto(RecomendadorId recoId, Moto moto){
-        appendChange(new MotoDefinida(recoId,moto)).apply();
+    public void definirMotos(RecomendadorId recoId, List<Moto> motosF){
+        appendChange(new MotosDefinidas(recoId,motosF)).apply();
     }
 
     public void generarRecomendador(RecomendadorId recoId){
@@ -77,65 +77,17 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
     }
 
 
-    public void filtrarXTipo(TipoMoto tipoMoto){
-        var MotosN = new HashMap<MotoId,Moto>();
-        this.motos.forEach(((motoId, moto) ->{
-            if(moto.getTipoM().value().equals(tipoMoto.value())){
-                MotosN.put(motoId,moto);
-            }
-        }));
-
-        this.motos = MotosN;
-    }
-
-    public void filtrarXPresupuesto(Presupuesto presupuesto){
-        var MotosN = new HashMap<MotoId,Moto>();
-        this.motos.forEach(((motoId, moto) ->{
-            if(moto.getPrecio().value() <= presupuesto.value()){
-                MotosN.put(motoId,moto);
-            }
-        }));
-
-        this.motos = MotosN;
-    }
-
-    public void filtrarXCilindraje(Cilindraje cilindraje){
-        var MotosN = new HashMap<MotoId,Moto>();
-        this.motos.forEach(((motoId, moto) ->{
-            if(moto.getCilindraje().value() == cilindraje.value()){
-                MotosN.put(motoId,moto);
-            }
-        }));
-
-        this.motos = MotosN;
-    }
-
-    public Moto definirMotoFinal(){
-        var motosN = new ArrayList<Moto>();
-        this.motos.forEach((motoid,moto)->{
-            motosN.add(moto);
-        });
-
-        Moto motoD = null;
-        Integer mayor = 0;
-
-        for (int i= 0; i < motosN.size(); i++){
-            if(motosN.get(i).getPrecio().value() > mayor ){
-                mayor = motosN.get(i).getPrecio().value();
-                motoD = motosN.get(i);
-            }
-
-        }
-        return motoD;
-
-    }
 
     public Vendedor Vendedor() {
         return vendedor;
     }
 
-    public Moto motoRecomendada(){
-        return motoRecomendada;
+    public List<Moto> getMotosRecomendadas() {
+        return motosRecomendadas;
+    }
+
+    public Map<MotoId, Moto> getMotos() {
+        return motos;
     }
 
     public Boolean Generado() {

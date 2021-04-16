@@ -5,23 +5,25 @@ import co.com.recomendador.domain.entities.Moto;
 import co.com.recomendador.domain.valueObjets.RecomendadorId;
 import co.com.sofka.domain.generic.DomainEvent;
 
-public class MotoDefinida extends DomainEvent {
+import java.util.List;
+
+public class MotosDefinidas extends DomainEvent {
 
     private final RecomendadorId recomendadorId;
-    private final Moto moto;
+    private final List<Moto> motosF;
 
 
-    public MotoDefinida(RecomendadorId recoId, Moto moto) {
+    public MotosDefinidas(RecomendadorId recoId, List<Moto> motosF) {
         super("recomendador.MotoDefinida");
         this.recomendadorId = recoId;
-        this.moto = moto;
+        this.motosF = motosF;
     }
 
     public RecomendadorId getRecomendadorId() {
         return recomendadorId;
     }
 
-    public Moto getMoto() {
-        return moto;
+    public List<Moto> getMotosF() {
+        return motosF;
     }
 }

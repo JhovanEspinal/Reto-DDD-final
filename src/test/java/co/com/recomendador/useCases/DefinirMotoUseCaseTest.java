@@ -2,7 +2,6 @@ package co.com.recomendador.useCases;
 
 import co.com.recomendador.domain.entities.Cliente;
 import co.com.recomendador.domain.entities.Moto;
-import co.com.recomendador.domain.entities.Vendedor;
 import co.com.recomendador.domain.events.*;
 import co.com.recomendador.domain.valueObjets.*;
 import co.com.sofka.business.generic.UseCaseHandler;
@@ -20,7 +19,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -30,7 +28,7 @@ class DefinirMotoUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void definirMoto(){
+    void definirMotos(){
 
         var recomendadorId = RecomendadorId.of("R001");
         var cilindraje = Cilindraje.of(200);
@@ -47,7 +45,7 @@ class DefinirMotoUseCaseTest {
         motos.put(MotoId.of("010"), new Moto(MotoId.of("010"), Nombre.of("BOXER"), Precio.of(3900000), TipoMoto.of("c"), Cilindraje.of(100)));
 
     var event = new CilindrajeAgregado(recomendadorId,cilindraje);
-    var useCase = new DefinirMotoUseCase();
+    var useCase = new DefinirMotosRecomendadasUseCase();
 
         when(repository.getEventsBy(recomendadorId.value())).thenReturn(eventStored(recomendadorId,motos));
         useCase.addRepository(repository);
@@ -58,9 +56,10 @@ class DefinirMotoUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
-    var motoDefinida = (MotoDefinida) events.get(0);
+    var motosDefinidas = (MotosDefinidas) events.get(0);
 
-        Assertions.assertTrue(Objects.nonNull(motoDefinida.getMoto()));
+        Assertions.assertTrue(Objects.nonNull(motosDefinidas.getMotosF()));
+        Assertions.assertEquals(2,motosDefinidas.getMotosF().size());
 
 
     }
@@ -70,9 +69,9 @@ class DefinirMotoUseCaseTest {
                 new RecomendadorCreado(recoId, motos),
                 new VendedorAgregado(RecomendadorId.of("012"),VendedorId.of("012"), Nombre.of("Jhovan"), Cedula.of("123456789")),
                 new ClienteAgregado(RecomendadorId.of("012"), new Cliente(ClienteId.of("C003"), Nombre.of("Daniel"), Cedula.of("1235489"), Telefono.of("276427"))),
-                new TipoMotoAgregado(RecomendadorId.of("012"), new TipoMoto("C")),
+                new TipoMotoAgregado(RecomendadorId.of("012"), new TipoMoto("c")),
                 new PresupuestoAgregado(RecomendadorId.of("012"), new Presupuesto(6000000)),
-                new CilindrajeAgregado(RecomendadorId.of("012"), new Cilindraje(250)));
+                new CilindrajeAgregado(RecomendadorId.of("012"), new Cilindraje(200)));
 
 
     }

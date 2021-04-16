@@ -1,15 +1,11 @@
 package co.com.recomendador.useCases;
 
-import co.com.recomendador.domain.Recomendador;
-import co.com.recomendador.domain.command.IndicarCilindraje;
 import co.com.recomendador.domain.entities.Cliente;
 import co.com.recomendador.domain.entities.Moto;
-import co.com.recomendador.domain.entities.Vendedor;
 import co.com.recomendador.domain.events.*;
 import co.com.recomendador.domain.valueObjets.*;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
-import co.com.sofka.business.support.RequestCommand;
 import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +18,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,7 +30,7 @@ class GenerarRecomendadorUseCaseTest {
     void GenerarRecomendor() {
 
         var recomendadorId = RecomendadorId.of("R001");
-        var moto = new Moto(MotoId.of("045"),Nombre.of("XTZ"),Precio.of(15000000),TipoMoto.of("e"),Cilindraje.of(250));
+        var motos2 = List.of(new Moto(MotoId.of("045"),Nombre.of("XTZ"),Precio.of(15000000),TipoMoto.of("e"),Cilindraje.of(250)),new Moto(MotoId.of("045"),Nombre.of("XTZ"),Precio.of(15000000),TipoMoto.of("e"),Cilindraje.of(250)));
         var motos = new HashMap<MotoId, Moto>();
         motos.put(MotoId.of("001"), new Moto(MotoId.of("001"), Nombre.of("XTZ"), Precio.of(7800000), TipoMoto.of("E"), Cilindraje.of(125)));
         motos.put(MotoId.of("002"), new Moto(MotoId.of("002"), Nombre.of("XR"), Precio.of(9000000), TipoMoto.of("E"), Cilindraje.of(150)));
@@ -50,10 +45,10 @@ class GenerarRecomendadorUseCaseTest {
 
 
 
-        var event = new MotoDefinida(recomendadorId,moto);
+        var event = new MotosDefinidas(recomendadorId,motos2);
         var useCase = new GenerarRecomendadorUseCase();
 
-        when(repository.getEventsBy(recomendadorId.value())).thenReturn(eventStored(recomendadorId, motos, moto));
+        when(repository.getEventsBy(recomendadorId.value())).thenReturn(eventStored(recomendadorId, motos));
         useCase.addRepository(repository);
 
         var events = UseCaseHandler.getInstance()
@@ -69,7 +64,7 @@ class GenerarRecomendadorUseCaseTest {
 
     }
 
-    private List<DomainEvent> eventStored(RecomendadorId recoId, Map<MotoId, Moto> motos, Moto moto) {
+    private List<DomainEvent> eventStored(RecomendadorId recoId, Map<MotoId, Moto> motos) {
 
         return List.of(
                 new RecomendadorCreado(recoId, motos),
@@ -77,8 +72,8 @@ class GenerarRecomendadorUseCaseTest {
                 new ClienteAgregado(RecomendadorId.of("R012"), new Cliente(ClienteId.of("032"), Nombre.of("David"), Cedula.of("4532578"), Telefono.of("25614"))),
                 new TipoMotoAgregado(RecomendadorId.of("012"),new TipoMoto("C")),
                 new PresupuestoAgregado(RecomendadorId.of("012"),new Presupuesto(6000000)),
-                new CilindrajeAgregado(RecomendadorId.of("012"), new Cilindraje(250)),
-                new MotoDefinida(RecomendadorId.of("012"),new Moto(MotoId.of("045"),Nombre.of("TORNADO"),Precio.of(15000000),TipoMoto.of("e"),Cilindraje.of(250))));
+                new CilindrajeAgregado(RecomendadorId.of("012"), new Cilindraje(250)));
+
     }
 
 

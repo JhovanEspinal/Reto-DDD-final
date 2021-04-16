@@ -67,7 +67,6 @@ class AgregarTipoMotoUseCaseTest {
         Assertions.assertEquals("R001", tipoMotoAgregado.getRecomendadorId().value());
         Assertions.assertEquals("c", tipoMotoAgregado.getTipoMoto().value());
 
-
     }
 
     private List<DomainEvent> eventStored(RecomendadorId recoId, Map<MotoId, Moto> motos) {
