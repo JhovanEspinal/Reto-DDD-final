@@ -51,6 +51,17 @@ public class Moto extends Entity<MotoId>{
         this.motos = Motos;
     }
 
+    public void filtrarXCilindraje(Cilindraje cilindraje){
+        var Motos = new HashMap<MotoId,Moto>();
+        this.motos.forEach(((motoId, moto) ->{
+            if(moto.cilindraje.value() == cilindraje.value()){
+                Motos.put(motoId,moto);
+            }
+        }));
+
+        this.motos = Motos;
+    }
+
 
     public Nombre getNombre() {
         return nombre;

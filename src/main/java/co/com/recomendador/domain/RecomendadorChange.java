@@ -42,6 +42,7 @@ public class RecomendadorChange extends EventChange {
 
         apply((CilindrajeAgregado event) -> {
             recomendador.vendedor.getCliente().IndicarCilindraje(event.getCilindraje());
+            recomendador.motoRecomendada.filtrarXCilindraje(event.getCilindraje());
         });
 
 
