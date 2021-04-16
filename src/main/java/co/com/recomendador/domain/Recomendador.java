@@ -16,7 +16,7 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
 
     protected Sede sede;
     protected Vendedor vendedor;
-    protected Map<MotoId,Moto> motos;
+    protected Moto motoRecomendada;
     protected Boolean generado;
 
     public Recomendador(RecomendadorId entityId,Map<MotoId,Moto> motos) {
@@ -75,8 +75,8 @@ public class Recomendador extends AggregateEvent<RecomendadorId> {
         return vendedor;
     }
 
-    public Map<MotoId, Moto> Motos() {
-        return motos;
+    public Moto motoRecomendada(){
+        return motoRecomendada;
     }
 
     public Boolean Generado() {

@@ -13,7 +13,7 @@ public class RecomendadorChange extends EventChange {
     public RecomendadorChange(Recomendador recomendador){
 
         apply((RecomendadorCreado event) -> {
-            recomendador.motos = event.getMotos();
+            recomendador.motoRecomendada.agregarMotos(event.getMotos());
             recomendador.generado = Boolean.FALSE;
         });
 
@@ -31,10 +31,16 @@ public class RecomendadorChange extends EventChange {
 
         apply((TipoMotoAgregado event) -> {
             recomendador.vendedor.getCliente().IndicarTipoMoto(event.getTipoMoto());
+            recomendador.motoRecomendada.filtrarXTipo(event.getTipoMoto());
+
         });
 
         apply((PresupuestoAgregado event) -> {
             recomendador.vendedor.getCliente().indicarPresupuesto(event.getPresupuesto());
+        });
+
+        apply((CilindrajeAgregado event) -> {
+            recomendador.vendedor.getCliente().IndicarCilindraje(event.getCilindraje());
         });
 
 

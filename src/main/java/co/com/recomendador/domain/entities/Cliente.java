@@ -54,7 +54,7 @@ public class Cliente extends Entity<ClienteId> {
 
     }
 
-    public void elegirCilindraje(Cilindraje cilindraje){
+    public void IndicarCilindraje(Cilindraje cilindraje){
     this.cilindraje = cilindraje;
     }
 

@@ -34,7 +34,7 @@ class CrearRecomendadorUseCaseTest {
         Assertions.assertTrue(Objects.nonNull(recomendadorCreado.getRecomendadorId().value()));
         Assertions.assertEquals("R001",recomendadorCreado.getRecomendadorId().value());
         Assertions.assertEquals(10,recomendadorCreado.getMotos().size());
-//        Assertions.assertEquals("XTZ",recomendadorCreado.getMotos().get("001").getNombre().value());
+
     }
 
 
