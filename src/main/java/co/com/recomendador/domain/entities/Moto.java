@@ -40,6 +40,17 @@ public class Moto extends Entity<MotoId>{
         this.motos = Motos;
     }
 
+    public void filtrarXPresupuesto(Presupuesto presupuesto){
+        var Motos = new HashMap<MotoId,Moto>();
+        this.motos.forEach(((motoId, moto) ->{
+            if(moto.precio.value() <= presupuesto.value()){
+                Motos.put(motoId,moto);
+            }
+        }));
+
+        this.motos = Motos;
+    }
+
 
     public Nombre getNombre() {
         return nombre;

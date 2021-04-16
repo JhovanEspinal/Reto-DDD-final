@@ -37,6 +37,7 @@ public class RecomendadorChange extends EventChange {
 
         apply((PresupuestoAgregado event) -> {
             recomendador.vendedor.getCliente().indicarPresupuesto(event.getPresupuesto());
+            recomendador.motoRecomendada.filtrarXPresupuesto(event.getPresupuesto());
         });
 
         apply((CilindrajeAgregado event) -> {
